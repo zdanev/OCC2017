@@ -1,0 +1,65 @@
+- go to Cortana Intelligence Gallery
+https://gallery.cortanaintelligence.com/
+
+- go to Loan Granting Binary Classification December 2016
+https://gallery.cortanaintelligence.com/Competition/1ad7a6df99794816b9bc071e27d46b10
+
+- step 1: Import Data (15 sec)
+
+- visualize data
+100k rows
+loan status is the label
+
+- step 2: add Convert To CSV
+open in Python notebook
+df.info()
+df.head()
+df.tail()
+df['Home Ownership'].unique()
+df['Home Ownership'].count()
+df['Home Ownership'].value_counts()
+
+- step 3: Remove Duplicate Rows
+select column Loan ID
+
+- step 4: add Clean Missing Values
+select Remove Entire row
+
+- step 5: add Apply SQL Transform
+select *,
+	cast([Current Loan Amount] as float) / [Annual Income] as [Loan to Income Ratio],
+	cast([Monthly Debt] as float) / [Annual Income] * 12  as [Debt to Income Ratio],
+	cast([Current Credit Balance]  as float) / [Annual Income] as [Credit Ballance to Income Ratio],
+	cast([Current Credit Balance] as float) / [Maximum Open Credit] as [Credit Ballance to Credit Ratio]
+from t1;
+
+- step 6: add Split Data (0.7), 
+add Train Model (selec column Loan Status)
+add Two-Class Boosted Decision Tree
+add Scode Model 
+add Evaluate Model
+run 2 min
+visualize
+
+- step 7
+add Train Model (select column Loan Status)
+add Two-Class Logistic Regression
+add Score Model
+run 
+visualize
+
+-step 8
+run
+select Train Model (for 2C BDT)
+setup web service
+run
+deploy web service
+
+click on New Web Service experience
+view sample code
+
+- step 9
+open excel online (office.com)
+insert/office add-ins/azure machine learning
+press Add Web Service, enter URL, API key
+press Use Sample Data
